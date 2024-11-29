@@ -29,31 +29,28 @@
 
                             <div class="col-md-6 col-12 form-group has-feedback">
                                 <input type="date" class="form-control" id="fecha_nacimiento" name="fecha_nacimiento" placeholder="Fecha Nacimiento" required>
-                                <span class="fa fa-user form-control-feedback right" aria-hidden="true"></span>
                             </div>
                         </div>
 
                         <div class="row">
                             <div class="col-md-6 col-12 form-group has-feedback">
-                                <input type="text" class="form-control has-feedback-left" id="genero" name="genero" placeholder="Genero" required>
-                                <span class="fa fa-envelope form-control-feedback left" aria-hidden="true"></span>
+                                <input type="text" class="form-control has-feedback" id="genero" name="genero" placeholder="Genero" required>
                             </div>
 
                             <div class="col-md-6 col-12 form-group has-feedback">
                                 <input type="text" class="form-control" id="tipo_documento" name="tipo_documento" placeholder="Tipo Documento" required>
-                                <span class="fa fa-phone form-control-feedback right" aria-hidden="true"></span>
                             </div>
                         </div>
 
                         <div class="row">
                             <div class="col-md-6 col-12 form-group has-feedback">
                                 <input type="text" class="form-control has-feedback-left" id="documento" name="documento" placeholder="Documento" required>
-                                <span class="fa fa-photo form-control-feedback left" aria-hidden="true"></span>
+                                <span class="fa fa-info-circle form-control-feedback left" aria-hidden="true"></span>
                             </div>
 
                             <div class="col-md-6 col-12 form-group has-feedback">
-                                <input type="text" class="form-control has-feedback-left" id="eps" name="eps" placeholder="EPS" required>
-                                <span class="fa fa-photo form-control-feedback left" aria-hidden="true"></span>
+                                <input type="text" class="form-control has-feedback-right" id="eps" name="eps" placeholder="EPS" required>
+                                <span class="fa fa-hospital-o form-control-feedback right" aria-hidden="true"></span>
                             </div>
                         </div>
 
@@ -64,27 +61,27 @@
                             </div>
 
                             <div class="col-md-6 col-12 form-group has-feedback">
-                                <input type="email" class="form-control has-feedback-left" id="correo" name="correo" placeholder="Correo" required>
-                                <span class="fa fa-photo form-control-feedback left" aria-hidden="true"></span>
+                                <input type="email" class="form-control has-feedback-right" id="correo" name="correo" placeholder="Correo" required>
+                                <span class="fa fa-envelope form-control-feedback right" aria-hidden="true"></span>
                             </div>
                         </div>
 
                         <div class="row">
                             <div class="col-md-6 col-12 form-group has-feedback">
                                 <input type="text" class="form-control has-feedback-left" id="telefono" name="telefono" placeholder="Telefono" required>
-                                <span class="fa fa-photo form-control-feedback left" aria-hidden="true"></span>
+                                <span class="fa fa-phone form-control-feedback left" aria-hidden="true"></span>
                             </div>
 
                             <div class="col-md-6 col-12 form-group has-feedback">
-                                <input type="text" class="form-control has-feedback-left" id="direccion" name="direccion" placeholder="Direccion" required>
-                                <span class="fa fa-photo form-control-feedback left" aria-hidden="true"></span>
+                                <input type="text" class="form-control has-feedback-right" id="direccion" name="direccion" placeholder="Direccion" required>
+                                <span class="fa fa-map-marker form-control-feedback right" aria-hidden="true"></span>
                             </div>
                         </div>
                         
                         <div class="row">
                             <div class="col-md-12 col-12 form-group has-feedback">
                                 <input type="text" class="form-control has-feedback-left" id="historial_medico" name="historial_medico" placeholder="Historial Medico" required>
-                                <span class="fa fa-photo form-control-feedback left" aria-hidden="true"></span>
+                                <span class="fa fa-heartbeat form-control-feedback left" aria-hidden="true"></span>
                             </div>
                         </div>
                         <div class="ln_solid"></div>

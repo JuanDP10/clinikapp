@@ -9,6 +9,7 @@
     <div class="right_col" role="main">
         <div class="x_panel" >
             <div class="x_title">
+                <h2>Crear Doctor</h2>
                 <div class="clearfix"></div>
             </div>
 
@@ -28,7 +29,7 @@
 
                             <div class="col-md-6 col-12 form-group has-feedback">
                                 <input type="text" class="form-control" id="especialidad" name="especialidad" placeholder="Especialidad" required>
-                                <span class="fa fa-user form-control-feedback right" aria-hidden="true"></span>
+                                <span class="fa fa-stethoscope form-control-feedback right" aria-hidden="true"></span>
                             </div>
                         </div>
 
@@ -49,12 +50,10 @@
                                 <input type="file" id="formFile" name="foto" placeholder="Foto" class="form-control has-feedback-left" accept="image/*">
                                 <span class="fa fa-photo form-control-feedback left" aria-hidden="true"></span>
                             </div>
-                        </div>
 
-                        <div class="row">
                             <div class="col-md-6 col-12 form-group has-feedback">
-                                <input type="text" class="form-control has-feedback-left" id="horario" name="horario" placeholder="Horario" required>
-                                <span class="fa fa-photo form-control-feedback left" aria-hidden="true"></span>
+                                <input type="text" class="form-control has-feedback-right" id="horario" name="horario" placeholder="Horario" required>
+                                <span class="fa fa-clock-o form-control-feedback right" aria-hidden="true"></span>
                             </div>
                         </div>
 
@@ -70,12 +69,10 @@
                                     @endforeach
                                 </select>
                             </div>
-                        </div>
 
-                        <div class="row">
                             <div class="col-md-6 col-12 form-group has-feedback">
-                                <input type="date" class="form-control has-feedback-left" id="fecha_contratacion" name="fecha_contratacion" placeholder="Fecha Contratacion" required>
-                                <span class="fa fa-photo form-control-feedback left" aria-hidden="true"></span>
+                                <input type="date" class="form-control has-feedback" id="fecha_contratacion" name="fecha_contratacion" placeholder="Fecha Contratacion" required>
+
                             </div>
                         </div>
 

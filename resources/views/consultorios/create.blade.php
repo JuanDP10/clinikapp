@@ -9,6 +9,7 @@
 <div class="right_col" role="main">
     <div class="x_panel" >
         <div class="x_title">
+            <h2>Crear Consultorio</h2>
             <div class="clearfix"></div>
         </div>
 
@@ -34,7 +35,7 @@
                     <div class="ln_solid"></div>
                     <div class="row justify-content-center mb-4">
                         <div class="col-md-8 text-center">
-                            <a href="{{ route('consultorios.index') }}" class="btn btn-primary" style="color: white;">
+                            <a href="{{ route('consultorios.index') }}" class="btn btn-danger" style="color: white;">
                                 <i class="fa fa-times"></i> Cancelar
                             </a>
                             

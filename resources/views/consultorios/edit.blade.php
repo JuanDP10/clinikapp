@@ -9,6 +9,7 @@
     <div class="right_col" role="main">
         <div class="x_panel">
             <div class="x_title">
+                <h2>Editar Consultorio</h2>
                 <div class="clearfix"></div>
             </div>
 
@@ -36,8 +37,7 @@
                         </div>
                     
                         <div class="row">
-                            <div class="col-md-6 col-12 form-group has-feedback">
-                                <label for="estado">Estado</label>
+                            <div class="col-md-12 col-12 form-group has-feedback">
                                 <select class="form-control" id="estado" name="estado" required>
                                     <option value="disponible" {{ $data->estado == 'disponible' ? 'selected' : '' }}>Disponible</option>
                                     <option value="mantenimiento" {{ $data->estado == 'mantenimiento' ? 'selected' : '' }}>Mantenimiento</option>
@@ -49,7 +49,7 @@
                     
                         <div class="row justify-content-center mb-4">
                             <div class="col-md-8 text-center">
-                                <a href="{{ route('consultorios.index') }}" class="btn btn-primary" style="color: white;">
+                                <a href="{{ route('consultorios.index') }}" class="btn btn-danger" style="color: white;">
                                     <i class="fa fa-times"></i> Cancelar
                                 </a>
                                 <button class="btn btn-primary" type="reset">

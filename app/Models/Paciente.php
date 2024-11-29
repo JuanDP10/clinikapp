@@ -14,7 +14,7 @@ class Paciente extends Model
         'documento',
         'eps',
         'foto', 
-        'email', 
+        'correo', 
         'telefono', 
         'direccion',
         'historial_medico'

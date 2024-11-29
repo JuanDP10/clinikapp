@@ -21,7 +21,7 @@ class PacienteController extends Controller
      */
     public function create()
     {
-        //
+        return view('pacientes.create');
     }
 
     /**
@@ -29,7 +29,42 @@ class PacienteController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'nombre' => 'required',
+            'fecha_nacimiento' => 'required',
+            'genero' => 'required',
+            'tipo_documento' => 'required',
+            'documento' => 'required',
+            'eps' => 'required',
+            'foto' => 'required|image',
+            'correo' => 'required',
+            'telefono' => 'required',
+            'dirección' => 'required',
+            'historial_medico' => 'required',
+        ]);
+
+        // Procesar la foto
+        $foto = $request->file('foto');
+        $name = rand(1000000, 9999999) . $foto->getClientOriginalName();
+        $foto->move(public_path('images'), $name);
+        
+        // Crear una nueva instancia del modelo Doctor y guardar los datos
+        Paciente::create([
+            'nombre' => $request->nombre,
+            'fecha_nacimiento' => $request->fecha_nacimiento,
+            'genero' => $request->genero,
+            'tipo_documento' => $request->tipo_documento,
+            'documento' => $request->documento,
+            'eps' => $request->eps,
+            'foto' => $name, 
+            'correo' => $request->correo,
+            'telefono' => $request->telefono,
+            'dirección' => $request->direccion,
+            'historial_medico' => $request->historial_medico,
+        ]);
+    
+        return redirect()->route('pacientes.index')->with('success', 'Doctor agregado correctamente');
+
     }
 
     /**

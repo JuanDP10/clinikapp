@@ -11,8 +11,14 @@
             <div class="title_left">
               <h3><i class="fa fa-users"></i> Pacientes</h3>
             </div>
-          </div>
-          <a href="#" class="btn btn-success btn-sm">Agregar</a>
+            <div class="title_right">
+              <div class="col-md-5 col-sm-5 form-group pull-right top_search text-right">
+                  <a href="{{ route('pacientes.create') }}" class="btn btn-primary ">
+                      <i class="fa fa-plus"></i> Ingresar Paciente
+                  </a>
+              </div>
+            </div>
+        </div>
           <div class="clearfix"></div>
 
           <div class="row">
@@ -24,13 +30,14 @@
                   <table class="table table-hover">
                       <thead>
                         <tr>
+                          <th>Foto</th>
                           <th>Nombre</th>
                           <th>Fecha Nacimiento</th>
                           <th>Genero</th>
                           <th>Tipo Documento</th>
                           <th>Documento</th>
                           <th>EPS</th>
-                          <th>E-mail</th>
+                          <th>Correo</th>
                           <th>Teléfono</th>
                           <th>Dirección</th>
                           <th>Historial Medico</th>
@@ -40,13 +47,14 @@
                       <tbody>
                         @foreach ($data as $paciente)
                           <tr>
+                            <td>{{ $paciente->foto ? asset('images/' . $paciente->foto) : asset('images/user.png') }}</td>
                             <td>{{ $paciente->nombre }}</td>
                             <td>{{ $paciente->fecha_nacimiento }}</td>
                             <td>{{ $paciente->genero }}</td>
                             <td>{{ $paciente->tipo_documento }}</td>
                             <td>{{ $paciente->documento }}</td>
                             <td>{{ $paciente->eps }}</td>
-                            <td>{{ $paciente->email }}</td>
+                            <td>{{ $paciente->correo }}</td>
                             <td>{{ $paciente->telefono }}</td>
                             <td>{{ $paciente->direccion }}</td>
                             <td>{{ $paciente->historial_medico }}</td>

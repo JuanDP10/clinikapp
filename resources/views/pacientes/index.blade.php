@@ -27,7 +27,7 @@
                 <div class="x_title">
                   <!-- <h2>Welcome to Clinik App</h2> -->
                   
-                  <table class="table table-hover">
+                  <table class="table table-hover text-center">
                       <thead>
                         <tr>
                           <th>Foto</th>
@@ -47,7 +47,7 @@
                       <tbody>
                         @foreach ($data as $paciente)
                           <tr>
-                            <td>{{ $paciente->foto ? asset('images/' . $paciente->foto) : asset('images/user.png') }}</td>
+                            <td><img src="{{ $paciente->foto ? asset('images/' . $paciente->foto) : asset('images/user.png') }}" alt="" style="width: 70px; height: 70px;"></td>
                             <td>{{ $paciente->nombre }}</td>
                             <td>{{ $paciente->fecha_nacimiento }}</td>
                             <td>{{ $paciente->genero }}</td>
@@ -58,10 +58,16 @@
                             <td>{{ $paciente->telefono }}</td>
                             <td>{{ $paciente->direccion }}</td>
                             <td>{{ $paciente->historial_medico }}</td>
-                            <td>
-                              <a href="#" class="btn btn-info btn-sm">Editar</a>
-                              <a href="#" class="btn btn-danger btn-sm">Eliminar</a>
-                            </td>
+                            <td width="100">
+                              <div class="btn-group" style="gap: 10px; flex-direction: column; align-items: flex-start; width: 100%;">
+                                <a href="{{ route('pacientes.show', $paciente->id) }}" class="btn btn-primary btn-sm" style="width: 100%;">
+                                  <i class="fa fa-eye m-right-xs"></i> Ver
+                                </a>
+                                <a href="{{ route('pacientes.edit', $paciente->id) }}" class="btn btn-success btn-sm" style="width: 100%;">
+                                  <i class="fa fa-edit m-right-xs"></i> Editar
+                                </a>
+                              </div>    
+                            </td>                                                   
                           </tr>
                         @endforeach
                       </tbody>

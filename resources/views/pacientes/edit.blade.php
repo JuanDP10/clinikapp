@@ -1,7 +1,7 @@
 @extends('layout')
 
 @section('title')
-<title>Clinick App | Editar Doctor</title>
+<title>Clinick App | Editar Paciente</title>
 @endsection
 
 @section('content')
@@ -9,7 +9,7 @@
     <div class="right_col" role="main">
         <div class="x_panel" >
             <div class="x_title">
-                <h2>Editar Doctor</h2>
+                <h2>Editar Paciente</h2>
                 <div class="clearfix"></div>
             </div>
 
@@ -19,7 +19,7 @@
                 </div>
 
                 <div class="col-md-10 col-8 my-3" >
-                    <form action="{{ route('doctores.update', $data->id ) }}" method="POST" class="form-label-left input_mask" enctype="multipart/form-data">
+                    <form action="{{ route('pacientes.update', $data->id ) }}" method="POST" class="form-label-left input_mask" enctype="multipart/form-data">
                         @csrf
                         @method('PUT') 
 
@@ -96,7 +96,7 @@
                         <div class="ln_solid"></div>
                         <div class="row justify-content-center mb-4">
                             <div class="col-md-8 text-center">
-                                <a href="{{ route('doctores.show', $data->id) }}" class="btn btn-primary" style="color: white;">
+                                <a href="{{ route('pacientes.show', $data->id) }}" class="btn btn-primary" style="color: white;">
                                     <i class="fa fa-times"></i> Cancelar
                                 </a>
                                 

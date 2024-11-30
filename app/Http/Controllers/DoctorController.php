@@ -51,7 +51,7 @@ class DoctorController extends Controller
         // Validación de los campos del formulario
         $request->validate([
             'nombre' => 'required',
-            'foto' => 'required|image',
+            'foto' => 'nullable|image',
             'especialidad' => 'required',
             'telefono' => 'required',
             'correo' => 'required',
@@ -62,10 +62,13 @@ class DoctorController extends Controller
         
         $consultorios = Consultorio::all();
 
-        // Procesar la foto
         $foto = $request->file('foto');
-        $name = rand(1000000, 9999999) . $foto->getClientOriginalName();
-        $foto->move(public_path('images'), $name);
+        $name = null; // Valor predeterminado si no se sube una foto
+        
+        if ($foto) {
+            $name = rand(1000000, 9999999) . $foto->getClientOriginalName();
+            $foto->move(public_path('images'), $name);
+        }
         
         // Crear una nueva instancia del modelo Doctor y guardar los datos
         Doctor::create([

@@ -10,11 +10,11 @@
           <div class="">
             <div class="page-title">
               <div class="title_left">
-              <h3><i class="fa fa-user-md"></i> Perfil </h3>
+              <h3><i class="fa fa-users"></i> Perfil </h3>
               </div>
               <div class="title_right">
                 <div class="col-md-5 col-sm-5 form-group pull-right top_search text-right">
-                    <a href="{{ route('doctores.index') }}" class="btn btn-primary ">
+                    <a href="{{ route('pacientes.index') }}" class="btn btn-primary ">
                         <i class="fa fa-arrow-left"></i> Regresar
                     </a>
                 </div>
@@ -42,33 +42,26 @@
                               src="{{ $data->foto ? asset('images/' . $data->foto) : asset('images/user.png') }}" 
                               alt="Avatar" 
                               title="Change the avatar"
-                              style="width: 350px; height: 350px;"
+                              style="width: 300px; height: 300px;"
                           />
                         </div>
                       </div>
                       <h3 class="font-weight-bold">{{ $data->nombre }}</h3>
 
                       <ul class="list-unstyled user_data">
-                        <li><i class="fa fa-graduation-cap"></i> Especialidad: {{ $data->especialidad }}</li>
+                        <li><i class="fa fa-graduation-cap"></i> Especialidad: {{ $data->nombre }}</li>
                         <li><i class="fa fa-envelope"></i> Correo: {{ $data->correo }}</li>
                         <li><i class="fa fa-phone"></i> Telefono: {{ $data->telefono }}</li>
-                        <li><i class="fa fa-clock-o"></i> Horario: {{ $data->horario }}</li>
-                        <li><i class="fa fa-stethoscope"></i> Consultorio: {{ $data->consultorio->numero_consultorio }}</li>
-                        <li><i class="fa fa-calendar"></i> Fecha Contratación: {{ $data->fecha_contratacion }}</li>
-                        <li><i class="fa fa-check-circle-o"></i> Estado: {{ $data->estado }}</li>
+                        <li><i class="fa fa-clock-o"></i> Horario: {{ $data->genero }}</li>
+                        <li><i class="fa fa-stethoscope"></i> Consultorio: {{ $data->direccion }}</li>
+                        <li><i class="fa fa-calendar"></i> Fecha Contratación: {{ $data->documento }}</li>
+                        <li><i class="fa fa-check-circle-o"></i> Estado: {{ $data->eps }}</li>
                       </ul>
                       
                       <div class="btn-group" style="display: flex; gap: 10px; justify-content: flex-start;">
-                        <a href="{{ route('doctores.edit', $data->id) }}" class="btn btn-success" style="color: white;">
+                        <a href="{{ route('pacientes.edit', $data->id) }}" class="btn btn-success" style="color: white;">
                             <i class="fa fa-edit m-right-xs"></i> Editar Perfil
                         </a>
-                        <form action="{{ route('doctores.destroy', $data->id) }}" method="POST">
-                          @csrf
-                          @method('PUT')
-                          <button type="submit" class="btn btn-danger" style="color: white; width: 100%;" onclick="return confirm('¿Estás seguro de que deseas desactivar este perfil?')">
-                              <i class="fa fa-edit m-right-xs"></i>Eliminar perfil
-                          </button>
-                        </form>
                       </div>
                     </div>
 
@@ -88,8 +81,8 @@
                                 <tr>
                                   <th>Fecha</th>
                                   <th>Hora</th>
+                                  <th>Doctor</th>
                                   <th>Consultorio</th>
-                                  <th>Paciente</th>
                                   <th>Diagnostico</th>
                                   <th>Tratamiento</th>
                                 </tr>
@@ -99,8 +92,8 @@
                                   <tr>
                                     <td>{{ $key->fecha }}</td>
                                     <td>{{ $key->hora }}</td>
+                                    <td>{{ $key->doctor->nombre }}</td>
                                     <td>{{ $key->consultorio->numero_consultorio }}</td>
-                                    <td>{{ $key->paciente->nombre }}</td>
                                     <td>{{ $key->diagnostico }}</td>
                                     <td>{{ $key->tratamiento }}</td>
                                   </tr>

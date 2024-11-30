@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Models\Paciente;
+use App\Models\Cita;
+use App\Models\Consultorio;
+
 class PacienteController extends Controller
 {
     /**
@@ -21,8 +24,12 @@ class PacienteController extends Controller
      */
     public function create()
     {
-        return view('pacientes.create');
+        $generos = ['Masculino', 'Femenino', 'Otro'];
+        $tipos_documento = ['CC', 'TI', 'Pasaporte', 'RegistroCivil'];
+    
+        return view('pacientes.create', compact('generos', 'tipos_documento'));
     }
+    
 
     /**
      * Store a newly created resource in storage.
@@ -36,19 +43,22 @@ class PacienteController extends Controller
             'tipo_documento' => 'required',
             'documento' => 'required',
             'eps' => 'required',
-            'foto' => 'required|image',
+            'foto' => 'nullable|image',
             'correo' => 'required',
             'telefono' => 'required',
-            'dirección' => 'required',
+            'direccion' => 'required',
             'historial_medico' => 'required',
         ]);
 
-        // Procesar la foto
         $foto = $request->file('foto');
-        $name = rand(1000000, 9999999) . $foto->getClientOriginalName();
-        $foto->move(public_path('images'), $name);
+        $name = null; // Valor predeterminado si no se sube una foto
         
-        // Crear una nueva instancia del modelo Doctor y guardar los datos
+        if ($foto) {
+            $name = rand(1000000, 9999999) . $foto->getClientOriginalName();
+            $foto->move(public_path('images'), $name);
+        }
+        
+        
         Paciente::create([
             'nombre' => $request->nombre,
             'fecha_nacimiento' => $request->fecha_nacimiento,
@@ -59,11 +69,11 @@ class PacienteController extends Controller
             'foto' => $name, 
             'correo' => $request->correo,
             'telefono' => $request->telefono,
-            'dirección' => $request->direccion,
+            'direccion' => $request->direccion,
             'historial_medico' => $request->historial_medico,
         ]);
     
-        return redirect()->route('pacientes.index')->with('success', 'Doctor agregado correctamente');
+        return redirect()->route('pacientes.index')->with('success', 'Paciente agregado correctamente');
 
     }
 
@@ -71,8 +81,12 @@ class PacienteController extends Controller
      * Display the specified resource.
      */
     public function show(string $id)
-    {
-        //
+    {   
+        $data = Paciente::find($id);
+        $citas = Cita::where('paciente_id', $id)->get();
+
+        return view('pacientes.show', compact('data', 'citas'));
+
     }
 
     /**

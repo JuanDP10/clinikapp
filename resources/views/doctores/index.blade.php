@@ -55,8 +55,8 @@
                                                 <li><i class="fa fa-check-circle-o"></i> Estado: {{ $doctor->estado }}</li>
                                             </ul>
                                         </div>
-                                        <div class="right col-sm-5 text-center">
-                                            <img src="{{ $doctor->foto ? asset('images/' . $doctor->foto) : asset('images/user.png') }}" alt="" class="img-circle img-fluid" style="width: 150px; height: 150px;">
+                                        <div class="right col-lg-5 text-center">
+                                            <img src="{{ $doctor->foto ? asset('images/' . $doctor->foto) : asset('images/user.png') }}" alt="" class="img-thumbnail" style="width: 150px; height: 150px;">
                                             <div class="pt-3 text-center">
                                                 <a href="{{ route('doctores.show', $doctor->id) }}" class="btn btn-primary btn-sm "> Ver Perfil</a>
                                             </div>

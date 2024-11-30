@@ -34,13 +34,23 @@
 
                         <div class="row">
                             <div class="col-md-6 col-12 form-group has-feedback">
-                                <input type="text" class="form-control has-feedback" id="genero" name="genero" placeholder="Genero" required>
+                                <select class="form-control" id="genero" name="genero" required>
+                                    <option value="" disabled selected>Seleccione un género</option>
+                                    @foreach($generos as $genero)
+                                        <option value="{{ $genero }}">{{ $genero }}</option>
+                                    @endforeach
+                                </select>
                             </div>
-
+                        
                             <div class="col-md-6 col-12 form-group has-feedback">
-                                <input type="text" class="form-control" id="tipo_documento" name="tipo_documento" placeholder="Tipo Documento" required>
+                                <select class="form-control" id="tipo_documento" name="tipo_documento" required>
+                                    <option value="" disabled selected>Seleccione un tipo de documento</option>
+                                    @foreach($tipos_documento as $tipo)
+                                        <option value="{{ $tipo }}">{{ $tipo }}</option>
+                                    @endforeach
+                                </select>
                             </div>
-                        </div>
+                        </div>                        
 
                         <div class="row">
                             <div class="col-md-6 col-12 form-group has-feedback">

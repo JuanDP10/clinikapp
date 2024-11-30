@@ -42,7 +42,7 @@
                               src="{{ $data->foto ? asset('images/' . $data->foto) : asset('images/user.png') }}" 
                               alt="Avatar" 
                               title="Change the avatar"
-                              style="width: 350px; height: 350px;"
+                              style="width: 300px; height: 300px;"
                           />
                         </div>
                       </div>

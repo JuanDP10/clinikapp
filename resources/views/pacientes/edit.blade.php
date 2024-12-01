@@ -48,23 +48,6 @@
                                     <input type="file" id="formFile" name="foto" value="{{ $data->foto }}" required="required" class="form-label" accept="image/*">
                                 </div>
                             </div>
-
-                            <div class="col-md-6 col-6 form-group has-feedback">
-                                <label class="col-form-label col-md-3 col-sm-3 label-align" style="font-weight: bold; color: #000; font-size: 16px;" for="consultorio_id">
-                                    Consultorio
-                                </label>
-                                <div class="col-md-8 col-sm-8">
-                                    <select id="consultorio_id" name="consultorio_id" class="form-control" required>
-                                        <option value="" disabled>Selecciona un consultorio</option>
-                                        @foreach ($consultorios as $consultorio)
-                                            <option value="{{ $consultorio->id }}" 
-                                                {{ $consultorio->id == $data->consultorio_id ? 'selected' : '' }}>
-                                                {{ $consultorio->numero_consultorio }}
-                                            </option>
-                                        @endforeach
-                                    </select>
-                                </div>
-                            </div>
                         </div>
 
                         <div class="row">
@@ -96,7 +79,7 @@
                         <div class="ln_solid"></div>
                         <div class="row justify-content-center mb-4">
                             <div class="col-md-8 text-center">
-                                <a href="{{ route('pacientes.show', $data->id) }}" class="btn btn-primary" style="color: white;">
+                                <a href="{{ route('pacientes.show', $data->id) }}" class="btn btn-danger" style="color: white;">
                                     <i class="fa fa-times"></i> Cancelar
                                 </a>
                                 

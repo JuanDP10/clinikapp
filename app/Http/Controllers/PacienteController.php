@@ -94,15 +94,58 @@ class PacienteController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $data = Paciente::find($id);
+        return view('pacientes.edit', compact('data'));
     }
+
 
     /**
      * Update the specified resource in storage.
      */
     public function update(Request $request, string $id)
     {
-        //
+        $request->validate([
+            'nombre' => 'required',
+            'fecha_nacimiento' => 'required',
+            'genero' => 'required',
+            'tipo_documento' => 'required',
+            'documento' => 'required',
+            'eps' => 'required',
+            'foto' => 'nullable|image',
+            'correo' => 'required',
+            'telefono' => 'required',
+            'direccion' => 'required',
+            'historial_medico' => 'required',
+        ]);
+    
+        // Obtener el doctor de la base de datos
+        $paciente = Paciente::find($id);
+    
+        // Procesar la foto
+        $foto = $request->file('foto');
+        $name = null; // Valor predeterminado si no se sube una foto
+        
+        if ($foto) {
+            $name = rand(1000000, 9999999) . $foto->getClientOriginalName();
+            $foto->move(public_path('images'), $name);
+        }
+    
+        // Actualizar los datos del doctor
+        $paciente->update([
+            'nombre' => $request->nombre,
+            'fecha_nacimiento' => $request->fecha_nacimiento,
+            'genero' => $request->genero,
+            'tipo_documento' => $request->tipo_documento,
+            'documento' => $request->documento,
+            'eps' => $request->eps,
+            'foto' => $name,
+            'correo' => $request->correo,
+            'telefono' => $request->telefono,
+            'direccion' => $request->direccion,
+            'historial_medico' => $request->historial_medico,
+        ]);
+    
+        return redirect()->route('pacientes.index')->with('success', 'Paciente Actualizado Correctamente');
     }
 
     /**

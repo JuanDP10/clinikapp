@@ -21,6 +21,7 @@
 
     <!-- Custom Theme Style -->
     <link href="{{ asset('build/css/custom.min.css') }}" rel="stylesheet">
+    
   </head>
 
   <body class="nav-md">
@@ -48,7 +49,7 @@
             </div>
             <!-- /menu profile quick info -->
 
-            <br />
+            <br/>
 
             <!-- sidebar menu -->
             <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">

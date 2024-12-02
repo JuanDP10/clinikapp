@@ -10,7 +10,7 @@
         <div class="">
           <div class="page-title">
             <div class="title_left">
-              <h3><i class="fa fa-stethoscope"></i> Consultorios</h3>
+              <h3 style="font-weight: bold"><i class="fa fa-stethoscope"></i> Consultorios</h3>
             </div>
             <div class="title_right">
               <div class="col-md-5 col-sm-5 form-group pull-right top_search text-right">

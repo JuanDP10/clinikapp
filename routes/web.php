@@ -6,6 +6,7 @@ use App\Http\Controllers\PacienteController;
 use App\Http\Controllers\DoctorController;
 use App\Http\Controllers\CitaController;
 use App\Http\Controllers\ConsultorioController;
+use App\Http\Controllers\InicioController;
 
 Route::get('/', function () {
     return view('login');
@@ -21,26 +22,19 @@ Route::get('/login', function () {
 
 
 Route::middleware(['auth'])->group(function () {
-    
-    Route::get('/home', function () {
-        return view('home');
-    });
 
-    Route::get('/profileview', function () {
-        return view('profileview');
-    });
+    Route::get('/home', [InicioController::class, 'index'])->name('inicio');
+
     
     Route::resource('pacientes', PacienteController::class);
     Route::resource('doctores', DoctorController::class);
     Route::resource('citas', CitaController::class);
     Route::resource('consultorios', ConsultorioController::class);
 
-    Route::get('/profile', function () {
-        return view('profile');
-    });
-
-    Route::post('/profile', [AuthController::class, 'profile']);
-    
+    Route::get('/profileview', function () {return view('profileview');})->name('profileview');    
+    Route::get('profile', [AuthController::class, 'showProfileForm'])->name('profile');
+    Route::post('profile', [AuthController::class, 'profile'])->name('profile.update');
+    Route::delete('profile/photo', [AuthController::class, 'deletePhoto'])->name('profile.deletePhoto');    
     
     Route::get('/logout', function(){
         Auth::logout();

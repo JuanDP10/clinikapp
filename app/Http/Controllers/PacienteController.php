@@ -95,8 +95,12 @@ class PacienteController extends Controller
     public function edit(string $id)
     {
         $data = Paciente::find($id);
-        return view('pacientes.edit', compact('data'));
+        $generos = ['Masculino', 'Femenino', 'Otro'];
+        $tipos_documento = ['CC', 'TI', 'Pasaporte', 'RegistroCivil'];
+    
+        return view('pacientes.edit', compact('data', 'generos', 'tipos_documento'));
     }
+    
 
 
     /**
@@ -104,6 +108,7 @@ class PacienteController extends Controller
      */
     public function update(Request $request, string $id)
     {
+        // Validaciones
         $request->validate([
             'nombre' => 'required',
             'fecha_nacimiento' => 'required',
@@ -117,20 +122,28 @@ class PacienteController extends Controller
             'direccion' => 'required',
             'historial_medico' => 'required',
         ]);
-    
-        // Obtener el doctor de la base de datos
+        
+        // Obtener el paciente de la base de datos
         $paciente = Paciente::find($id);
-    
+        
         // Procesar la foto
         $foto = $request->file('foto');
-        $name = null; // Valor predeterminado si no se sube una foto
+        $name = $paciente->foto; // Mantener la foto actual por defecto
         
+        // Si se ha subido una nueva foto
         if ($foto) {
+            // Generar un nombre único para la nueva foto
             $name = rand(1000000, 9999999) . $foto->getClientOriginalName();
+            // Mover la foto al directorio deseado
             $foto->move(public_path('images'), $name);
         }
-    
-        // Actualizar los datos del doctor
+        
+        // Si se marca la opción de eliminar la foto, establecerla a null
+        if ($request->has('eliminar_foto') && $request->eliminar_foto == '1') {
+            $name = null; // Establecer la foto como null
+        }
+        
+        // Actualizar los datos del paciente
         $paciente->update([
             'nombre' => $request->nombre,
             'fecha_nacimiento' => $request->fecha_nacimiento,
@@ -144,9 +157,11 @@ class PacienteController extends Controller
             'direccion' => $request->direccion,
             'historial_medico' => $request->historial_medico,
         ]);
-    
+        
+        // Redirigir a la lista de pacientes con un mensaje de éxito
         return redirect()->route('pacientes.index')->with('success', 'Paciente Actualizado Correctamente');
     }
+
 
     /**
      * Remove the specified resource from storage.

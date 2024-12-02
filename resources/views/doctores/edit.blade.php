@@ -38,16 +38,7 @@
                                 <div class="col-md-8 col-sm-8 ">
                                     <input type="text" id="especialidad" name="especialidad" value="{{ $data->especialidad }}" required="required" class="form-control ">
                                 </div>
-                            </div>
-
-                            
-                            <div class="col-md-6 col-6 form-group has-feedback" >
-                                <label class="col-form-label col-md-3 col-sm-3 label-align" style="font-weight: bold; color: #000; font-size: 16px;" for="foto">Foto
-                                </label>
-                                <div class="col-md-8 col-sm-8 ">
-                                    <input type="file" id="formFile" name="foto" value="{{ $data->foto }}" required="required" class="form-label" accept="image/*">
-                                </div>
-                            </div>
+                            </div>                         
 
                             <div class="col-md-6 col-6 form-group has-feedback">
                                 <label class="col-form-label col-md-3 col-sm-3 label-align" style="font-weight: bold; color: #000; font-size: 16px;" for="consultorio_id">
@@ -63,6 +54,13 @@
                                             </option>
                                         @endforeach
                                     </select>
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-6 form-group has-feedback" >
+                                <label class="col-form-label col-md-3 col-sm-3 label-align" style="font-weight: bold; color: #000; font-size: 16px;" for="horario">Horario
+                                </label>
+                                <div class="col-md-8 col-sm-8 ">
+                                    <input type="text" id="horario" name="horario" value="{{ $data->horario }}" required="required" class="form-control ">
                                 </div>
                             </div>
                         </div>
@@ -83,16 +81,35 @@
                                     <input type="email" id="correo" name="correo" value="{{ $data->correo }}" required="required" class="form-control ">
                                 </div>
                             </div>
-
-                            <div class="col-md-6 col-6 form-group has-feedback" >
-                                <label class="col-form-label col-md-3 col-sm-3 label-align" style="font-weight: bold; color: #000; font-size: 16px;" for="horario">Horario
+                        </div>       
+                        <br>
+                        <div class="row">
+                            <!-- Columna para el input de archivo -->
+                            <div class="col-md-6 col-12 form-group has-feedback">
+                                <label class="col-form-label col-md-3 col-sm-3 label-align" style="font-weight: bold; color: #000; font-size: 16px;" for="consultorio_id">
+                                    Foto
                                 </label>
-                                <div class="col-md-8 col-sm-8 ">
-                                    <input type="text" id="horario" name="horario" value="{{ $data->horario }}" required="required" class="form-control ">
+                                <div class="col-md-8 col-sm-8">
+                                    <input type="file" id="formFile" name="foto" placeholder="Foto" class="form-control has-feedback-left" accept="image/*">
+                                    <span class="fa fa-photo form-control-feedback" aria-hidden="true"></span>
                                 </div>
                             </div>
+                        
+                            <!-- Columna para mostrar la foto actual (si existe) -->
+                            <div class="col-md-6 col-12">
+                                @if($data->foto)
+                                    <div class="mt-3 text-center">
+                                        <p><strong>Foto Actual:</strong></p>
+                                        <img src="{{ asset('images/' . $data->foto) }}" alt="Foto actual" class="img-thumbnail" width="150">
+                                        <div class="form-check mt-2">
+                                            <input type="checkbox" name="eliminar_foto" value="1" class="form-check-input" id="eliminarFoto">
+                                            <label class="form-check-label" for="eliminarFoto">Eliminar Foto</label>
+                                        </div>
+                                    </div>
+                                @endif
+                            </div>
                         </div>
-
+                        
                         <div class="ln_solid"></div>
                         <div class="row justify-content-center mb-4">
                             <div class="col-md-8 text-center">

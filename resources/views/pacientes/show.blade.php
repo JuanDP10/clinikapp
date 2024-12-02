@@ -42,20 +42,22 @@
                               src="{{ $data->foto ? asset('images/' . $data->foto) : asset('images/user.png') }}" 
                               alt="Avatar" 
                               title="Change the avatar"
-                              style="width: 300px; height: 300px;"
+                              style="width: 280px; height: 280px;"
                           />
                         </div>
                       </div>
                       <h3 class="font-weight-bold">{{ $data->nombre }}</h3>
 
                       <ul class="list-unstyled user_data">
-                        <li><i class="fa fa-graduation-cap"></i> Especialidad: {{ $data->nombre }}</li>
+                        <li><i class="fa fa-calendar"></i> Fecha de Nacimiento: {{ $data->fecha_nacimiento }}</li>
+                        <li><i class="fa fa-info-circle"></i> Tipo de Documento: {{ $data->tipo_documento }}</li>
+                        <li><i class="fa fa-hashtag"></i> Documento: {{ $data->documento }}</li>
+                        <li><i class="fa fa-venus-mars"></i> Genero: {{ $data->genero }}</li>
+                        <li><i class="fa fa-hospital-o"></i> EPS: {{ $data->eps }}</li>
                         <li><i class="fa fa-envelope"></i> Correo: {{ $data->correo }}</li>
                         <li><i class="fa fa-phone"></i> Telefono: {{ $data->telefono }}</li>
-                        <li><i class="fa fa-clock-o"></i> Horario: {{ $data->genero }}</li>
-                        <li><i class="fa fa-stethoscope"></i> Consultorio: {{ $data->direccion }}</li>
-                        <li><i class="fa fa-calendar"></i> Fecha Contratación: {{ $data->documento }}</li>
-                        <li><i class="fa fa-check-circle-o"></i> Estado: {{ $data->eps }}</li>
+                        <li><i class="fa fa-map-marker"></i> Direccion: {{ $data->direccion }}</li>
+                        <li><i class="fa fa-stethoscope"></i> Historial Medico: {{ $data->historial_medico }}</li>
                       </ul>
                       
                       <div class="btn-group" style="display: flex; gap: 10px; justify-content: flex-start;">

@@ -104,7 +104,7 @@ class DoctorController extends Controller
      */
     public function edit(string $id)
     {
-        $data = Doctor::findOrFail($id);
+        $data = Doctor::find($id);
         $consultorios = Consultorio::all();
         return view('doctores.edit', compact('data', 'consultorios'));
     }
@@ -116,7 +116,7 @@ class DoctorController extends Controller
     {
         $request->validate([
             'nombre' => 'required',
-            'foto' => 'required|image',
+            'foto' => 'nullable|image',
             'especialidad' => 'required',
             'telefono' => 'required',
             'correo' => 'required',
@@ -129,8 +129,20 @@ class DoctorController extends Controller
     
         // Procesar la foto
         $foto = $request->file('foto');
-        $name = rand(1000000, 9999999) . $foto->getClientOriginalName();
-        $foto->move(public_path('images'), $name);
+        $name = $doctor->foto; // Mantener la foto actual por defecto
+        
+        // Si se ha subido una nueva foto
+        if ($foto) {
+            // Generar un nombre único para la nueva foto
+            $name = rand(1000000, 9999999) . $foto->getClientOriginalName();
+            // Mover la foto al directorio deseado
+            $foto->move(public_path('images'), $name);
+        }
+        
+        // Si se marca la opción de eliminar la foto, establecerla a null
+        if ($request->has('eliminar_foto') && $request->eliminar_foto == '1') {
+            $name = null; // Establecer la foto como null
+        }
     
         // Actualizar los datos del doctor
         $doctor->update([

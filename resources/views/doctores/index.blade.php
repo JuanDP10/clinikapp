@@ -51,7 +51,7 @@
                                                 <li><i class="fa fa-phone"></i> Telefono: {{ $doctor->telefono }}</li>
                                                 <li><i class="fa fa-clock-o"></i> Horario: {{ $doctor->horario }}</li>
                                                 <li><i class="fa fa-stethoscope"></i> Consultorio: {{ $doctor->consultorio->numero_consultorio }}</li>
-                                                <li><i class="fa fa-calendar"></i> Fecha Contratación: {{ $doctor->fecha_contratacion }}</li>
+                                                <li><i class="fa fa-calendar"></i> Fecha Contratación: <br>{{ $doctor->fecha_contratacion }}</li>
                                                 <li><i class="fa fa-check-circle-o"></i> Estado: {{ $doctor->estado }}</li>
                                             </ul>
                                         </div>

@@ -5,6 +5,82 @@
 @endsection
 
 @section('content')
+    <style>
+        /* Estilos para el letrero de bienvenida sin fondo */
+        .welcome-banner {
+            margin: 20px 0;
+        }
+
+        .welcome-text {
+            font-size: 3rem;
+            font-weight: 700;
+            margin: 0;
+            color: #17a2b8; /* Color de texto similar al del título */
+        }
+
+        /* Estilos para las tarjetas */
+        .card {
+            background-color: #fff;
+            border-radius: 15px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+        }
+
+        .card-body {
+            padding: 30px;
+            background-color: #f7f7f7;
+        }
+
+        /* Efecto de hover */
+        .card-hover:hover {
+            transform: scale(1.05);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+            border-color: #e0e0e0;
+        }
+
+        /* Títulos de las tarjetas */
+        .card-title {
+            font-size: 20px;
+            font-weight: 600;
+            text-align: center;
+            font-weight: bold;
+        }
+
+        /* Colores de los iconos y los números */
+        .text-info {
+            color: #17a2b8 !important;
+        }
+        .text-success {
+            color: #28a745 !important;
+        }
+        .text-warning {
+            color: #ffc107 !important;
+        }
+        .text-danger {
+            color: #dc3545 !important;
+        }
+
+        /* Diseño de los iconos */
+        .card-title i {
+            margin-right: 10px;
+            font-size: 28px;
+        }
+
+        /* Efectos visuales y sombras sutiles */
+        .card {
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Media Queries para que las tarjetas se adapten a pantallas pequeñas */
+        @media (max-width: 768px) {
+            .card-body {
+                padding: 20px;
+            }
+            .card-title {
+                font-size: 18px;
+            }
+        }
+    </style>
+
     <div class="right_col" role="main">
         <div class="page-title">
             <div class="title_left">
@@ -18,7 +94,9 @@
         </div>
 
         <div class="clearfix"></div><br>
+
         <div class="row text-info">
+
             <!-- Cuadro de pacientes -->
             <div class="col-md-3 col-sm-6 col-xs-12">
                 <div class="card shadow-lg rounded border-light card-hover">
@@ -74,82 +152,8 @@
                     </div>
                 </div>
             </div>
+
         </div>
     </div>
 @endsection
 
-<style>
-    /* Estilos para el letrero de bienvenida sin fondo */
-    .welcome-banner {
-        margin: 20px 0;
-    }
-
-    .welcome-text {
-        font-size: 3rem;
-        font-weight: 700;
-        margin: 0;
-        color: #17a2b8; /* Color de texto similar al del título */
-    }
-
-    /* Estilos para las tarjetas */
-    .card {
-        background-color: #fff;
-        border-radius: 15px;
-        transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
-    }
-
-    .card-body {
-        padding: 30px;
-        background-color: #f7f7f7;
-    }
-
-    /* Efecto de hover */
-    .card-hover:hover {
-        transform: scale(1.05);
-        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
-        border-color: #e0e0e0;
-    }
-
-    /* Títulos de las tarjetas */
-    .card-title {
-        font-size: 20px;
-        font-weight: 600;
-        text-align: center;
-        font-weight: bold;
-    }
-
-    /* Colores de los iconos y los números */
-    .text-info {
-        color: #17a2b8 !important;
-    }
-    .text-success {
-        color: #28a745 !important;
-    }
-    .text-warning {
-        color: #ffc107 !important;
-    }
-    .text-danger {
-        color: #dc3545 !important;
-    }
-
-    /* Diseño de los iconos */
-    .card-title i {
-        margin-right: 10px;
-        font-size: 28px;
-    }
-
-    /* Efectos visuales y sombras sutiles */
-    .card {
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    }
-
-    /* Media Queries para que las tarjetas se adapten a pantallas pequeñas */
-    @media (max-width: 768px) {
-        .card-body {
-            padding: 20px;
-        }
-        .card-title {
-            font-size: 18px;
-        }
-    }
-</style>

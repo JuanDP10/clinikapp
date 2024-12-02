@@ -17,8 +17,6 @@ class InicioController extends Controller
         $citasCount = Cita::count();
         $consultoriosCount = Consultorio::count();
 
-        // Puedes agregar más lógica para obtener los datos de las gráficas, si es necesario
-
         return view('inicio.index', compact('pacientesCount', 'doctoresCount', 'citasCount', 'consultoriosCount'));
     }
 }

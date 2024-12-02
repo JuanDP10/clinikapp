@@ -42,7 +42,6 @@
             font-size: 20px;
             font-weight: 600;
             text-align: center;
-            font-weight: bold;
         }
 
         /* Colores de los iconos y los números */

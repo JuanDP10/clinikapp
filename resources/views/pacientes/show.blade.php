@@ -78,7 +78,7 @@
                           <div role="tabpanel" class="tab-pane fade active show" id="tab_content2" aria-labelledby="profile-tab">
 
                             <!-- start user projects -->
-                            <table class="data table table-striped no-margin">
+                            <table class="data table table-striped no-margin text-center">
                               <thead>
                                 <tr>
                                   <th>Fecha</th>
@@ -87,6 +87,7 @@
                                   <th>Consultorio</th>
                                   <th>Diagnostico</th>
                                   <th>Tratamiento</th>
+                                  <th>Estado</th>
                                 </tr>
                               </thead>
                               <tbody>
@@ -98,6 +99,7 @@
                                     <td>{{ $key->consultorio->numero_consultorio }}</td>
                                     <td>{{ $key->diagnostico }}</td>
                                     <td>{{ $key->tratamiento }}</td>
+                                    <td>{{ $key->estado }}</td>
                                   </tr>
                                 @endforeach
                               </tbody>

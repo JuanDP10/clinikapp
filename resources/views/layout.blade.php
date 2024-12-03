@@ -29,8 +29,8 @@
       <div class="main_container">
         <div class="col-md-3 left_col">
           <div class="left_col scroll-view">
-            <div class="navbar nav_title" style="border: 0;">
-              <a href="home" class="site_title"><i class="fa fa-h-square"></i> <span>Clinick App</span></a>
+            <div class="navbar nav_title text-center" style="border: 0;">
+              <a href="home" class="site_title"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/ad/Madrid_Barajas_H.svg/2048px-Madrid_Barajas_H.svg.png" style="width: 30px; height: 30px;"> <span style="font-weight: bold">Clinick App</span></a>
             </div>
 
             <div class="clearfix"></div>

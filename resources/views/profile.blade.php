@@ -9,7 +9,7 @@
     <div class="">
         <div class="page-title">
             <div class="title_left">
-                <h3><i class="fa fa-user"></i> Perfil</h3>
+                <h3 style="font-weight: bold"><i class="fa fa-user"></i> Perfil</h3>
             </div>
 
             <div class="clearfix"></div>

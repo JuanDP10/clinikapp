@@ -21,31 +21,52 @@
 
     <!-- Custom Theme Style -->
     <link href="{{ asset('build/css/custom.min.css') }}" rel="stylesheet">
-    
+    <style>
+      .profile_info {
+      display: flex;
+      gap: 10px; /* Espacio entre la imagen y el texto */
+    }
+
+    .profile_pic {
+      flex-shrink: 0; /* Evita que la imagen se encoja */
+    }
+
+    .profile_text {
+      display: flex;
+      flex-direction: column; /* Asegura que el texto esté en una columna */
+      justify-content: center; /* Alinea los textos verticalmente */
+    }
+    </style>
   </head>
 
   <body class="nav-md">
     <div class="container body">
       <div class="main_container">
-        <div class="col-md-3 left_col">
+        <div class="col-md-3 left_col menu_fixed mCustomScrollbar _mCS_1 mCS-autoHide" style="overflow: visible;">
           <div class="left_col scroll-view">
-            <div class="navbar nav_title text-center" style="border: 0;">
-              <a href="home" class="site_title"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/ad/Madrid_Barajas_H.svg/2048px-Madrid_Barajas_H.svg.png" style="width: 30px; height: 30px;"> <span style="font-weight: bold">Clinick App</span></a>
+            <div class="navbar nav_title text-center">
+              <a href="{{ url('home') }}" class="site_title"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/ad/Madrid_Barajas_H.svg/2048px-Madrid_Barajas_H.svg.png" style="width: 30px; height: 30px;"> <span style="font-weight: bold">Clinick App</span></a>
             </div>
 
             <div class="clearfix"></div>
 
             <!-- menu profile quick info -->
             <div class="profile clearfix">
-              <div class="profile_pic">
-                <img src="{{ asset('images/' . (Auth::user()->foto ?? 'profile-img.png')) }}" alt="" class="img-circle profile_img" style="width: 70px; height: 70px;">
-              </div>
               <div class="profile_info">
-                <span>Bienvenido,</span>
-                <h2>{{ auth()->user()->name ?? 'NN' }}</h2>
+                <div class="profile_pic">
+                  <img src="{{ asset('images/' . (Auth::user()->foto ?? 'profile-img.png')) }}" 
+                       alt="Imagen de perfil" 
+                       class="img-circle profile_img" 
+                       style="width: 60px; height: 60px;">
+                </div>
+                <div class="profile_text">
+                  <span>Bienvenido,</span>
+                  <h2 style="font-weight: bold">{{ auth()->user()->name ?? 'NN' }}</h2>
+                </div>
               </div>
-              <p class="text-center">{{ isset(Auth::user()->email) ? Auth::user()->email : '@' }}</p>
-              <div class="clearfix"></div>
+            </div>
+            <div class="profile clearfix"> 
+              <p class="text-center pt-2 text-white">{{ isset(Auth::user()->email) ? Auth::user()->email : '@' }}</p>
             </div>
             <!-- /menu profile quick info -->
 
@@ -63,12 +84,11 @@
                   <li><a href="{{ url('consultorios') }}"><i class="fa fa-stethoscope"></i> Consultorios </a></li>
                 </ul>
               </div>
-
             </div>
             <!-- /sidebar menu -->
 
             <!-- /menu footer buttons -->
-            <div class="sidebar-footer">
+            <div class="sidebar-footer hidden-small">
               <a data-toggle="tooltip" data-placement="top" title="Perfil" href="{{ url('profileview') }}">
                 <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
               </a>
@@ -98,7 +118,7 @@
                     <a href="{{ url('profile') }}" class="user-profile dropdown-toggle" aria-haspopup="true" id="navbarDropdown" data-toggle="dropdown" aria-expanded="false">
                       <img src="{{ asset('images/' . (Auth::user()->foto ?? 'profile-img.png')) }}" alt="">{{ Auth::user()->name ?? 'NN' }}
                     </a>
-                    <div class="dropdown-menu dropdown-usermenu pull-right" aria-labelledby="navbarDropdown">
+                    <div class="dropdown-menu dropdown-usermenu pull-right mt-4" aria-labelledby="navbarDropdown">
                       <a class="dropdown-item"  href="{{ url('profileview') }}"> Ver Perfil</a>
                       <a class="dropdown-item"  href="{{ url('profile') }}"> Actualizar Perfil</a>
                       <a class="dropdown-item"  href="#"><span>Configuración</span></a>

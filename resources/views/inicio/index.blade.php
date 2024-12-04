@@ -101,7 +101,7 @@
                 <div class="card shadow-lg rounded border-light card-hover">
                     <div class="card-body">
                         <div class="card-title">
-                            <h2 class="text-info"><i class="fa fa-users"></i> Pacientes</h2>
+                            <h2 class="text-info" style="font-weight: bold; font-size: 25px"><i class="fa fa-users"></i> Pacientes</h2>
                         </div>
                         <div class="card-text text-center">
                             <h1>{{ $pacientesCount }}</h1>
@@ -115,7 +115,7 @@
                 <div class="card shadow-lg rounded border-light card-hover">
                     <div class="card-body">
                         <div class="card-title">
-                            <h2 class="text-success"><i class="fa fa-user-md"></i> Doctores</h2>
+                            <h2 class="text-success" style="font-weight: bold; font-size: 25px"><i class="fa fa-user-md"></i> Doctores</h2>
                         </div>
                         <div class="card-text text-center">
                             <h1 class="text-success">{{ $doctoresCount }}</h1>
@@ -129,7 +129,7 @@
                 <div class="card shadow-lg rounded border-light card-hover">
                     <div class="card-body">
                         <div class="card-title">
-                            <h2 class="text-warning"><i class="fa fa-calendar"></i> Citas</h2>
+                            <h2 class="text-warning" style="font-weight: bold; font-size: 25px"><i class="fa fa-calendar"></i> Citas</h2>
                         </div>
                         <div class="card-text text-center">
                             <h1 class="text-warning">{{ $citasCount }}</h1>
@@ -143,7 +143,7 @@
                 <div class="card shadow-lg rounded border-light card-hover">
                     <div class="card-body">
                         <div class="card-title">
-                            <h2 class="text-danger"><i class="fa fa-stethoscope"></i> Consultorios</h2>
+                            <h2 class="text-danger" style="font-weight: bold; font-size: 25px"><i class="fa fa-stethoscope"></i> Consultorios</h2>
                         </div>
                         <div class="card-text text-center">
                             <h1 class="text-danger">{{ $consultoriosCount }}</h1>

@@ -43,9 +43,9 @@
                             <div class="col-md-4 col-sm-4 profile_details">
                                 <div class="well profile_view">
                                     <div class="col-sm-12">
-                                        <h4 class="brief"><i>{{ $doctor->nombre }}</i></h4>
+                                        <h4 class="text-primary text-center" style="font-weight: bold">{{ $doctor->nombre }}</h4>
+                                        <h6 class="text-info text-center" style="font-weight: bold; font-size:15px"> {{ $doctor->especialidad }} </h6>
                                         <div class="left col-sm-7">
-                                            <p><strong>Especialidad: </strong> {{ $doctor->especialidad }} </p>
                                             <ul class="list-unstyled">
                                                 <li><i class="fa fa-building"></i> Correo: {{ $doctor->correo }}</li>
                                                 <li><i class="fa fa-phone"></i> Telefono: {{ $doctor->telefono }}</li>
@@ -57,9 +57,9 @@
                                         </div>
                                         <div class="right col-lg-5 text-center">
                                             <img src="{{ $doctor->foto ? asset('images/' . $doctor->foto) : asset('images/user.png') }}" alt="" class="img-thumbnail" style="width: 150px; height: 150px;">
-                                            <div class="pt-3 text-center">
-                                                <a href="{{ route('doctores.show', $doctor->id) }}" class="btn btn-primary btn-sm "> Ver Perfil</a>
-                                            </div>
+                                        </div>
+                                        <div class="pt-3 text-center">
+                                            <a href="{{ route('doctores.show', $doctor->id) }}" class="btn btn-primary btn-sm "> Ver Perfil</a>
                                         </div>
                                     </div>
                                 </div>

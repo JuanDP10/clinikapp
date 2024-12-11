@@ -60,13 +60,15 @@
                                 <a href="{{ route('consultorios.edit', $consultorio->id) }}" class="btn btn-success" style="color: white;">
                                     <i class="fa fa-edit m-right-xs"></i> Editar Consultorio
                                 </a>
-                                <form action="{{ route('consultorios.destroy', $consultorio->id) }}" method="POST">
-                                  @csrf
-                                  @method('PUT')
-                                  <button type="submit" class="btn btn-danger" style="color: white; width: 100%;" onclick="return confirm('¿Estás seguro de que deseas desactivar este perfil?')">
-                                      <i class="fa fa-times m-right-xs"></i> Mantenimiento
-                                  </button>
-                                </form>
+                                @if(Auth::user()->rol == 'admin')
+                                  <form action="{{ route('consultorios.destroy', $consultorio->id) }}" method="POST">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button type="submit" class="btn btn-danger" style="color: white; width: 100%;" onclick="return confirm('¿Estás seguro de que deseas desactivar este perfil?')">
+                                        <i class="fa fa-times m-right-xs"></i> Mantenimiento
+                                    </button>
+                                  </form>
+                                @endif
                               </div>
                             </td>
                           </tr>

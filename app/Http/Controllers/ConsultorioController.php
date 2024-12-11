@@ -106,6 +106,7 @@ class ConsultorioController extends Controller
      */
     public function destroy($id)
     {
+
         // Intentar encontrar el consultorio por su ID
         $consultorio = Consultorio::find($id);
     

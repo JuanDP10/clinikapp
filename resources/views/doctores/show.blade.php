@@ -59,7 +59,7 @@
                         </a>
                         <form action="{{ route('doctores.destroy', $data->id) }}" method="POST">
                           @csrf
-                          @method('PUT')
+                          @method('DELETE')
                           <button type="submit" class="btn btn-danger" style="color: white; width: 100%;" onclick="return confirm('¿Estás seguro de que deseas desactivar este perfil?')">
                               <i class="fa fa-times m-right-xs"></i> Eliminar perfil
                           </button>

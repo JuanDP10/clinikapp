@@ -5,6 +5,9 @@
 @endsection
 
 @section('content')
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="//cdn.datatables.net/2.1.8/css/dataTables.dataTables.min.css">
+  <script src="//cdn.datatables.net/2.1.8/js/dataTables.min.js"></script>
 
   <div class="right_col" role="main">
         <div class="">
@@ -41,7 +44,7 @@
                 </div>
                   <!-- <h2>Welcome to Clinik App</h2> -->
                   
-                  <table class="table table-hover">
+                  <table class="table table-hover" id="myTable">
                       <thead>
                         <tr>
                           <th>Fecha</th>
@@ -79,6 +82,8 @@
           </div>
         </div>
   </div>
-
+  <script>
+        let table = new DataTable('#myTable');
+  </script>
 @endsection      
       

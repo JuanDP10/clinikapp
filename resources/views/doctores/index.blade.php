@@ -6,7 +6,7 @@
 
 @section('content')
 
-  <div class="right_col" role="main">
+    <div class="right_col" role="main">
         <div class="page-title">
             <div class="title_left">
                 <h3 style="font-weight: bold"><i class="fa fa-user-md"></i> Doctores</h3>
@@ -71,5 +71,4 @@
             </div>
         </div>
     </div>
-
 @endsection

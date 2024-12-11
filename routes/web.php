@@ -41,7 +41,7 @@ Route::middleware(['auth'])->group(function () {
         return redirect('login');
     });
 
-    Route::resource('consultorios', ConsultorioController::class)->except('destroy');
+    Route::resource('consultorios', ConsultorioController::class)->except('destroy', 'edit');
 });
 
 

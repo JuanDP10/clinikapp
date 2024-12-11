@@ -1,9 +1,13 @@
 @extends('layout')
+
 @section('title')
 <title>Clinick App | Pacientes</title>
 @endsection
 
 @section('content')
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="//cdn.datatables.net/2.1.8/css/dataTables.dataTables.min.css">
+  <script src="//cdn.datatables.net/2.1.8/js/dataTables.min.js"></script>
 
   <div class="right_col" role="main">
         <div class="">
@@ -20,14 +24,9 @@
             </div>
         </div>
           <div class="clearfix"></div>
-
-          <div class="row">
-            <div class="col-md-12 col-sm-12  ">
-              <div class="x_panel">
-                <div class="x_title">
                   <!-- <h2>Welcome to Clinik App</h2> -->
                   
-                  <table class="table table-hover text-center">
+                  <table class="table table-hover" id="myTable">
                       <thead>
                         <tr>
                           <th>Foto</th>
@@ -58,7 +57,7 @@
                             <td>{{ $paciente->telefono }}</td>
                             <td>{{ $paciente->direccion }}</td>
                             <td>{{ $paciente->historial_medico }}</td>
-                            <td width="100">
+                            <td>
                               <div class="btn-group" style="gap: 10px; flex-direction: column; align-items: flex-start; width: 100%;">
                                 <a href="{{ route('pacientes.show', $paciente->id) }}" class="btn btn-primary btn-sm" style="width: 100%;">
                                   <i class="fa fa-eye m-right-xs"></i> Ver
@@ -80,6 +79,31 @@
           </div>
         </div>
   </div>
-
+  <script>
+    let table = new DataTable('#myTable', {
+        scrollX: true,
+        paging: true,
+        searching: true, 
+        ordering: true, 
+        info: true, 
+        lengthMenu: [10, 25, 50],
+        language: {
+            lengthMenu: "Mostrar _MENU_ registros por página",
+            zeroRecords: "No se encontraron resultados",
+            info: "Mostrando _START_ a _END_ de _TOTAL_ registros",
+            infoEmpty: "Mostrando 0 a 0 de 0 registros",
+            search: "Buscar:",
+            paginate: {
+                first: "Primero",
+                last: "Último",
+                next: "Siguiente",
+                previous: "Anterior"
+            }
+        },
+        columnDefs: [
+            { orderable: false, targets: [11] } // Desactivar ordenamiento en la columna "Acciones"
+        ],
+    });
+  </script>
 @endsection      
       

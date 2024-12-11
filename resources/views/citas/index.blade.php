@@ -68,7 +68,7 @@
                             <td>{{ $cita->tratamiento }}</td>
                             <td>{{ $cita->estado }}</td>
                             <td>
-                              <a href="{{ route('citas.edit', $cita->id) }}" class="btn btn-info btn-sm">Editar</a>
+                              <a href="{{ route('citas.edit', $cita->id) }}" class="btn btn-success btn-sm"><i class="fa fa-edit m-right-xs"></i> Editar</a>
                             </td>
                           </tr>
                         @endforeach
@@ -83,7 +83,30 @@
         </div>
   </div>
   <script>
-        let table = new DataTable('#myTable');
+    let table = new DataTable('#myTable', {
+        paging: true,
+        searching: true, 
+        ordering: true, 
+        info: true, 
+        lengthMenu: [10, 25, 50],
+        language: {
+            lengthMenu: "Mostrar _MENU_ registros por página",
+            zeroRecords: "No se encontraron resultados",
+            info: "Mostrando _START_ a _END_ de _TOTAL_ registros",
+            infoEmpty: "Mostrando 0 a 0 de 0 registros",
+            search: "Buscar:",
+            paginate: {
+                first: "Primero",
+                last: "Último",
+                next: "Siguiente",
+                previous: "Anterior"
+            }
+        },
+        columnDefs: [
+            { orderable: false, targets: [7] } // Desactivar ordenamiento en la columna "Acciones"
+        ]
+    });
   </script>
+
 @endsection      
       

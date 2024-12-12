@@ -82,8 +82,8 @@
                     <li><a href="{{ url('citas') }}"><i class="fa fa-calendar"></i> Citas </a></li>
                     <li><a href="{{ url('pacientes') }}"><i class="fa fa-users"></i> Pacientes </a></li>
                     <li><a href="{{ url('doctores') }}"><i class="fa fa-user-md"></i> Doctores </a></li>
-                    <li><a href="{{ url('consultorios') }}"><i class="fa fa-stethoscope"></i> Consultorios </a></li>
                   @endif
+                    <li><a href="{{ url('consultorios') }}"><i class="fa fa-stethoscope"></i> Consultorios </a></li>
                 </ul>
               </div>
             </div>
